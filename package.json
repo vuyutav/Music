@@ -1,0 +1,98 @@
+{
+  "name": "music-player",
+  "version": "1.0.0",
+  "private": true,
+  "description": "A pixel-art desktop music player for local files and YouTube Music playlists",
+  "main": "electron/main.cjs",
+  "type": "module",
+  "author": "cupidity -modified by Azki",
+  "scripts": {
+    "dev": "concurrently -k -n vite,electron -c blue,magenta \"vite\" \"wait-on tcp:5173 && cross-env NODE_ENV=development electron .\"",
+    "vite": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "electron": "electron .",
+    "package": "vite build && cross-env CSC_IDENTITY_AUTO_DISCOVERY=false electron-builder",
+    "package:win": "vite build && cross-env CSC_IDENTITY_AUTO_DISCOVERY=false electron-builder --win"
+  },
+  "dependencies": {
+    "dotenv": "^17.4.2",
+    "jsonwebtoken": "^9.0.3",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "youtubei.js": "^17.0.1",
+    "yt-dlp-exec": "^1.0.2"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-basic-ssl": "^2.3.0",
+    "@vitejs/plugin-react": "^4.3.4",
+    "concurrently": "^9.1.2",
+    "cross-env": "^7.0.3",
+    "electron": "^33.4.11",
+    "electron-builder": "^25.1.8",
+    "nodemon": "^3.1.14",
+    "png-to-ico": "^3.0.1",
+    "vite": "^6.0.7",
+    "wait-on": "^8.0.1"
+  },
+  "build": {
+    "appId": "com.cupidbity.cupid-player",
+    "productName": "Music Player",
+    "files": [
+      "dist/**/*",
+      "electron/**/*",
+      "assets/**/*",
+      "package.json"
+    ],
+    "asarUnpack": [
+      "node_modules/yt-dlp-exec/**"
+    ],
+    "extraResources": [
+      {
+        "from": "audio",
+        "to": "audio",
+        "filter": [
+          "**/*"
+        ]
+      }
+    ],
+    "directories": {
+      "output": "out"
+    },
+    "mac": {
+      "target": "dir",
+      "category": "public.app-category.music",
+      "icon": "assets/blue/icon.ico"
+    },
+    "win": {
+      "target": [
+        {
+          "target": "nsis",
+          "arch": [
+            "x64"
+          ]
+        },
+        {
+          "target": "portable",
+          "arch": [
+            "x64"
+          ]
+        }
+      ],
+      "icon": "assets/blue/icon.ico",
+      "signAndEditExecutable": true
+    },
+    "nsis": {
+      "oneClick": true,
+      "perMachine": false,
+      "allowToChangeInstallationDirectory": false,
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true,
+      "shortcutName": "Music Player"
+    },
+    "linux": {
+      "target": "AppImage",
+      "icon": "assets/blue/icon.ico"
+    }
+  }
+}
