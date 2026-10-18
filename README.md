@@ -4,7 +4,7 @@
 
 - Memutar file audio lokal dari folder **Music Tracks**
 - Menjelajahi dan memutar daftar putar **YouTube Music** (masuk melalui Pengaturan)
-- Beralih antara tema merah muda dan biru
+- Tema berwarma biru
 - Mengatur volume dengan penggeser dropdown di sebelah tombol pemutaran
 - Menyeret, mengubah ukuran, meminimalkan, dan menutup jendela tanpa bingkai
 
@@ -58,7 +58,7 @@ Streaming menggunakan audio YouTube di latar belakang — diperlukan koneksi int
 | Sebelumnya / Berikutnya | Tombol samping |
 | Tombol **vol** | Membuka penggeser volume vertikal |
 | Bintang pada bilah kemajuan | Seret untuk mencari |
-| Roda gigi pengaturan | Tema, sumber musik, daftar putar |
+| Roda gigi pengaturan | Sumber musik, daftar putar |
 | Area bilah judul | Seret untuk memindahkan jendela |
 | Sudut | Ubah ukuran jendela |
 
